@@ -1,4 +1,4 @@
-== NHAM
+== NHAM ==
 ''Know what you eat''
 
 '''This is a learning app!'''
@@ -14,5 +14,6 @@ There are a lot of features I see coming in the near future though, such as:
 * Ability for registered users to add their own food and record it for future use;
 * Ability for registered users to access the NHAM database of already recorded common foods;
 * ...and a lot more.
+
 
 It's mainly a fun project which is why I'm putting it free and open source. It's my way to learn and give back some of my knowledge to the community. Also, I'm fat and need to educate myself to eat well again :'(
