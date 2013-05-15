@@ -2,7 +2,7 @@
 ''Know what you eat''
 
 '''This is a learning app!'''
-Meaning: I'm still learning Ruby and the Rails architecture and although I'm very familiar with MVC and other programming languages, coming to Ruby means learning everything again. I will mess up a lot. And that's ok but beware! If you have something to add, *by all means, do so*.
+Meaning: I'm still learning Ruby and the Rails architecture and although I'm very familiar with MVC and other programming languages, coming to Ruby means learning everything again. I will mess up a lot. And that's ok but beware! If you have something to add, '''by all means, do so'''.
 
 This project represents my efforts towards creating a calculator for foods. Each food has a certain quantity of points based on their attributes. The user will fill in these attributes and the app will present the total of points it represents.
 
@@ -11,8 +11,8 @@ Simple as that.
 There are a lot of features I see coming in the near future though, such as:
 * A user can register in the site to have more features;
 * Profile calculator: Give the user the amount of points he/she should eat a day based on their age, weight and other attributes;
-* Ability for registered users to add their own food and record it for future use;
-* Ability for registered users to access the NHAM database of already recorded common foods;
+* Ability for registered users to add their own food and save it for future use;
+* Ability for registered users to access the NHAM database of already saved common foods;
 * ...and a lot more.
 
 
