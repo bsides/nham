@@ -1,0 +1,69 @@
+<%= form_for @foods, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :carb, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :carb, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :protein, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :protein, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fat, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :fat, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :fiber, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :fiber, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pointsplus, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :pointsplus, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                foods_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+<script language="javascript">
+function toFloat(strNum) {
+    var full = strNum.split(/[.,]/);
+
+    if (full.length == 1) return parseFloat(strNum);
+
+    var back = full[full.length - 1];
+    var result = full.join('').replace(new RegExp(back + '$'), '.' + back);
+
+    return parseFloat(result);
+}
+
+$(document).ready(function() {
+  $('input').change(function() {
+    var $carb = $('#user_food_protein').val() ? toFloat($('#user_food_protein').val()) : 0;
+    var $protein = $('#user_food_carb').val() ? toFloat($('#user_food_carb').val()) : 0;
+    var $fat = $('#user_food_fat').val() ? toFloat($('#user_food_fat').val()) : 0;
+    var $fiber = $('#user_food_fiber').val() ? toFloat($('#user_food_fiber').val()) : 0;
+    var $formula = ($carb * 16) + ($protein * 19) + ($fat * 45) - ($fiber * 14);
+    $formula = Math.round($formula / 175);
+    $('#user_food_pointsplus').val($formula);
+  });
+});
+</script>

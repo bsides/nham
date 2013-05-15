@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>Listando Alimentos</h1>
+</div>
+<table class="table table-striped">
+  <tbody>
+    <% @infos.each do |info| %>
+      <tr>
+        <td><%= link_to info.id, info_path(info) %></td>
+        <td><%= info.food.name %></td>
+        <td><%= info.carbs %></td>
+        <td><%= info.protein %></td>
+        <td><%= info.fat %></td>
+        <td><%= info.fiber %></td>
+        <td><%= info.sodium %></td>
+        <td><%= info.serving %></td>
+        <td><%= info.quantity %></td>
+        <td><%= info.unit %></td>
+        <td><%= info.essential %></td>
+        <td><%= info.pointsplus %></td>
+        <td><%= info.user_points %></td>
+        <td><%= info.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_info_path(info), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      info_path(info),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_info_path,
+            :class => 'btn btn-primary' %>
+
+<% render :partial => 'form' %>
+
+<%= will_paginate @infos %>
