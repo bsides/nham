@@ -63,6 +63,7 @@ NhamCo::Application.routes.draw do
 
 
 
-  match 'calculate' => 'calculator#calculate_food_points'
+  match 'calculate' => 'calculator#index'
+  match 'calculate_food_points' => 'calculator#calculate_food_points'
 
 end

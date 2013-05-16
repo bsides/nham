@@ -1,8 +1,12 @@
-<%= form_tag('/calculator') do %>
-	<%= text_field_tag(:f) %>
-	<%= label_tag(:f, "First Number") %><br />
-	<%= text_field_tag(:s) %>
-	<%= label_tag(:s, "Second Number") %><br />
+<%= form_tag('/calculate_food_points') do %>
+	<%= text_field_tag(:carbs) %>
+	<%= label_tag(:carbs, "Carbs") %><br />
+	<%= text_field_tag(:protein) %>
+	<%= label_tag(:protein, "Protein") %><br />
+	<%= text_field_tag(:fat) %>
+	<%= label_tag(:fat, "Fat") %><br />
+	<%= text_field_tag(:fiber) %>
+	<%= label_tag(:fiber, "Fiber") %><br />
 	<%= text_field_tag(:r) %>
 	<%= text_field_tag(:r, @result, :disabled => true) %>
 	<%= submit_tag("Calculate") %>

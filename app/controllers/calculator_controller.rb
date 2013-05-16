@@ -1,18 +1,19 @@
-class Calculator < ApplicationController
+class CalculatorController < ApplicationController
 
   def index
   	@result = ''
   end
 
   def calculate_food_points
-  	@carbs = param[:carbs].to_f
-  	@protein = param[:proteins].to_f
-  	@fat = param[:fat].to_f
-  	@fiber = param[:fiber].to_f
+  	@carbs = params[:carbs].to_f
+  	@protein = params[:proteins].to_f
+  	@fat = params[:fat].to_f
+  	@fiber = params[:fiber].to_f
 
 
   	formula = (@carbs * 16) + (@protein * 19) + (@fat * 45) - (@fiber * 14)
   	@result = (formula / 175).round(2)
+  	render :action => :index
   end
 
   def calculate_daily_points
@@ -33,11 +34,17 @@ class Calculator < ApplicationController
   	# Final formula 2012
   	# Target-mod = min (max (round ( max(ATEE - 1000, 1000) / 35 ) -7 -4,26), 71)
 
-  	TEEm = 864 - (9.72 * @age) + 1.12 * ((14.2 * @weight) + (503 * @height))
-  	TEEf = 387 - (7.31 * @age) + 1.14 * ((10.9 * @weight) + (660.7 * @height))
-  	ATEEm = 0.9 * TEEm + 200
-  	ATEEf = 0.9 * TEEf + 200
-  	formula = ((((ATEE - 1000).max) / 35).round -7).min
+  	teem = 864 - (9.72 * @age) + 1.12 * ((14.2 * @weight) + (503 * @height))
+  	teef = 387 - (7.31 * @age) + 1.14 * ((10.9 * @weight) + (660.7 * @height))
+  	
+  	ateem = calculate_atee(teem)
+    ateef = calculate_atee(teef)
+ 
+  	final_formula = ((((ateem - 1000).max) / 35).round -7).min
+
+  	def calculate_atee(gender)
+  		return 0.9 * gender + 200
+  	end
   end
 
 end
