@@ -4,7 +4,7 @@ class Calculator < ApplicationController
   	@result = ''
   end
 
-  def calculate_food_pointsl
+  def calculate_food_points
   	@carbs = param[:carbs].to_f
   	@protein = param[:proteins].to_f
   	@fat = param[:fat].to_f

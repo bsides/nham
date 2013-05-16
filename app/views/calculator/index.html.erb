@@ -1,0 +1,9 @@
+<%= form_tag('/calculator') do %>
+	<%= text_field_tag(:f) %>
+	<%= label_tag(:f, "First Number") %><br />
+	<%= text_field_tag(:s) %>
+	<%= label_tag(:s, "Second Number") %><br />
+	<%= text_field_tag(:r) %>
+	<%= text_field_tag(:r, @result, :disabled => true) %>
+	<%= submit_tag("Calculate") %>
+<% end %>
